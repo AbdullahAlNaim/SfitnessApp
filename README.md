@@ -1,1 +1,1 @@
-# SfitnessApp
+# S fitnessApp
