@@ -4,21 +4,41 @@
 //mongodb://localhost:27017
 //67.82.242.15/32
 //mongodb+srv://uday:Idontknow5@fitness2.uwxekjf.mongodb.net/
+//C:\Users\aanai\Desktop\Developer\JS\Health_v2
 
+const formEl = document.querySelector('form');
 
-
-const { MongoClient } = require(['mongodb'], function (mongodb) {
-
-})
+const { MongoClient } = require('mongodb')
 //require('mongodb').MongoClient;
 
 async function main() {
-    const url = "mongodb+srv://uday:Idontknow5@fitness2.uwxekjf.mongodb.net/"
+    const uri = "mongodb+srv://uday:Idontknow5@fitness2.uwxekjf.mongodb.net/?retryWrites=true&w=majority";
 
-    const client = new MongoClient(url);
+    const client = new MongoClient(uri);
 
     try {
         await client.connect();
+
+        //const datab = client.db("insertDB");
+
+        //const database = client.db('mywebappdb');
+        //const collection = database.collection('mycollection');
+
+        const database = client.db('myexercises');
+        const exercises = database.collection('exercises');
+
+        const docs = {
+            exercise_name: 'benchpress',
+            weight: 134,
+            reps: 6,
+        }
+
+        const doc2 = { exercise: 'benchpress', weight: 135, reps: 8 }
+
+        const result = await exercises.insertOne(docs);
+
+        console.log('Inserted document with _id:', result.insertedId);
+
         await listDatabases(client);
     }
     catch (e) {
@@ -30,19 +50,69 @@ async function main() {
 
 }
 
-main().catch(console.error);
-
-
-const formEl = document.querySelector('form');
-
 formEl.addEventListener('submit', event => {
     event.preventDefault();
-
+    console.log('pushed submit')
     const formData = new FormData(formEl);
     console.log(formData.get('weight'))
     console.log(formData.get('reps'))
-
+    const docs = {
+        exercise_name: formData.get('exercises'),
+        weight: formData.get('weight'),
+        reps: formData.get('reps'),
+    }
+    console.log(docs)
+    main().catch(console.error);
 })
+
+main().catch(console.error);
+
+
+// async function listDatabases(client) {
+//     const databasesList = await client.db().admin().listDatabases();
+
+//     console.log("Databases:");
+//     databasesList.databases.foreach(db => {
+//         console.log(`- ${db.name}`);
+//     })
+// }
+
+async function listDatabases(client) {
+    databasesList = await client.db().admin().listDatabases();
+
+    console.log("Databases:");
+    databasesList.databases.forEach(db => console.log(` - ${db.name}`));
+};
+
+// async function exer() {
+// formEl.addEventListener('submit', event => {
+//     event.preventDefault();
+
+//     const formData = new FormData(formEl);
+//     console.log(formData.get('weight'))
+//     console.log(formData.get('reps'))
+//     const doc = {
+//         exercise: formData.get('weight'),
+//         reps: formData.get('reps'),
+//     }
+
+//     })
+// }
+
+
+
+
+
+// const formEl = document.querySelector('form');
+
+// formEl.addEventListener('submit', event => {
+//     event.preventDefault();
+
+//     const formData = new FormData(formEl);
+//     console.log(formData.get('weight'))
+//     console.log(formData.get('reps'))
+
+// })
 
 
 
@@ -78,7 +148,7 @@ const menu = {
         "Fat": 5,
         "Fiber": 0,
         "Sugar": 0.6
-    },
+    }
 
 }
 
