@@ -1,3 +1,38 @@
+//0paFiG12C4iAISB8
+//mongodb+srv://aanaim96:<0paFiG12C4iAISB8>@cluster0.kqkmrly.mongodb.net/
+//C:\Users\aanai\Desktop\mongosh-1.9.1-win32-x64\bin
+//mongodb://localhost:27017
+//67.82.242.15/32
+//mongodb+srv://uday:Idontknow5@fitness2.uwxekjf.mongodb.net/
+
+
+
+const { MongoClient } = require(['mongodb'], function (mongodb) {
+
+})
+//require('mongodb').MongoClient;
+
+async function main() {
+    const url = "mongodb+srv://uday:Idontknow5@fitness2.uwxekjf.mongodb.net/"
+
+    const client = new MongoClient(url);
+
+    try {
+        await client.connect();
+        await listDatabases(client);
+    }
+    catch (e) {
+        console.error(e);
+    }
+    finally {
+        await client.close()
+    }
+
+}
+
+main().catch(console.error);
+
+
 const formEl = document.querySelector('form');
 
 formEl.addEventListener('submit', event => {
@@ -6,6 +41,7 @@ formEl.addEventListener('submit', event => {
     const formData = new FormData(formEl);
     console.log(formData.get('weight'))
     console.log(formData.get('reps'))
+
 })
 
 
@@ -19,10 +55,7 @@ formEl.addEventListener('submit', event => {
 
 
 
-
-
-
-
+// --------------------------------------
 
 
 
@@ -49,7 +82,7 @@ const menu = {
 
 }
 
-console.log(menu["Boiled Egg"]["Protein"])
+//console.log(menu["Boiled Egg"]["Protein"])
 
 
 
