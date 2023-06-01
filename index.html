@@ -5,10 +5,12 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title></title>
+    <title>FITNESS</title>
+
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
@@ -19,7 +21,10 @@
         <p></p>
         <select name="exercises" id="exer">
             <option value="benchpress">Benchpress</option>
-            <option value="deadlift">deadlift</option>
+            <option value="deadlift">Deadlift</option>
+            <option value="squat">Squat</option>
+            <option value="Incline Benchpress">Incline Benchpress</option>
+            <option value="dumbell curl">Dumbell Curl</option>
         </select>
 
         <p></p>
@@ -35,7 +40,6 @@
         <p> </p>
         <button>SUBMIT</button>
 
-        <p>PERFORMANCE</p>
         <!--Questions after-->
         <!-- app to make workout more social with friends list show gains progress-->
         <!--icon/words switch for questions option at top/bottom-->
@@ -49,8 +53,18 @@
         <!--4) Did you have around 48 hr rest of current exercised muscle group?-->
 
     </form>
-
+    <script data-main="scripts/main" src="require.js"></script>
     <script src="app.js" async defer></script>
+    <script src="form_up.js" async defer></script>
+    <script src="mongtest.js" async defer></script>
+    <script>
+        requirejs.config({
+            //Pass the top-level main.js/index.js require
+            //function to requirejs so that node modules
+            //are loaded relative to the top-level JS file.
+            nodeRequire: require
+        }); 
+    </script>
 
 </body>
 
