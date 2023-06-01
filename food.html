@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <form action="">
+
+        <label for="exercise">Food</label>
+        <p></p>
+        <select name="meal_type" id="meal_type">
+            <option value="breakfast">Breakfast</option>
+            <option value="lunch">Lunch</option>
+            <option value="snack">Snack</option>
+            <option value="dinner">Dinner</option>
+        </select>
+
+        <p></p>
+
+        <label for="Ingredent/Food"></label>
+        <input name="Ingredent/Food" type="text" placeholder="Ingredent/Food">
+
+        <p></p>
+
+        <label for="Calories"></label>
+        <input name="Calories" type="text" placeholder="Calories">
+
+        <p> </p>
+
+        <label for="Protein"></label>
+        <input name="Protein" type="text" placeholder="Protein">
+
+        <p></p>
+        <button>SUBMIT</button>
+
+
+
+    </form>
+
+    <script data-main="js/config" src="require.js"></script>
+
+    <script>
+        require(['config'], function () {
+
+        })
+    </script>
+    <script src="app.js" async defer></script>
+
+</body>
+
+</html>
