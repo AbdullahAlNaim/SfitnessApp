@@ -1,10 +1,5 @@
-//0paFiG12C4iAISB8
-//mongodb+srv://aanaim96:<0paFiG12C4iAISB8>@cluster0.kqkmrly.mongodb.net/
-//C:\Users\aanai\Desktop\mongosh-1.9.1-win32-x64\bin
-//mongodb://localhost:27017
-//67.82.242.15/32
-//mongodb+srv://uday:Idontknow5@fitness2.uwxekjf.mongodb.net/
-//C:\Users\aanai\Desktop\Developer\JS\Health_v2
+
+
 
 const formEl = document.querySelector('form');
 
@@ -12,7 +7,7 @@ const { MongoClient } = require('mongodb')
 //require('mongodb').MongoClient;
 
 async function main() {
-    const uri = "mongodb+srv://uday:Idontknow5@fitness2.uwxekjf.mongodb.net/?retryWrites=true&w=majority";
+    const uri = "";
 
     const client = new MongoClient(uri);
 
